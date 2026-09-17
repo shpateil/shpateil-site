@@ -1,7 +1,6 @@
 # shpateil site
 
-исходники [shpateil.fun](https://shpateil.fun). тёмная страница с контактами глитч эффектами и небольшой игрой на скорость печати
-
+исходники [shpateil.fun](https://shpateil.fun). тёмная страница с контактами и глитч эффектами
 html css javascript и express. без сборщика. контент и результаты игры хранятся в json
 
 ## запуск
