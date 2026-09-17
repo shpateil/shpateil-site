@@ -1,0 +1,17 @@
+{
+  "name": "shpateil-fun",
+  "version": "1.0.0",
+  "private": true,
+  "description": "shpateil.fun — terminal-style personal site",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "node api/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

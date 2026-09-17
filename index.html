@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1'><meta name='color-scheme' content='dark'><meta name='theme-color' content='#0a0a0c'><meta name='robots' content='index,follow'>
+<meta property="og:title" content="shpateil">
+<meta property="og:description" content="root@shpateil: личный сайт, ai-агент и files">
+<meta property="og:image" content="https://shpateil.fun/og.png?v=1">
+<meta property="og:url" content="https://shpateil.fun/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="shpateil">
+<meta name="twitter:description" content="root@shpateil: личный сайт, ai-агент и files">
+<meta name="twitter:image" content="https://shpateil.fun/og.png?v=1"><meta name='description' content='shpateil. разработчик, arch, self-host'><title>shpateil.fun</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6"><link rel="apple-touch-icon" href="/favicon.svg?v=6">
+<link rel="stylesheet" href="/static/fonts.css?v=1789632151">
+<style>
+:root{color-scheme:dark;--bg:#0a0a0c;--p:#0e0e13;--ln:rgba(255,255,255,.07);--ln2:rgba(255,255,255,.14);--tx:#f2f2f4;--mut:#a6a7ae;--dim:#6c6d76;--gn:#3cec80;--ac:#ff2e9a;--ac-line:rgba(255,46,154,.45);--ac-soft:rgba(255,46,154,.12);--mono:ui-monospace,'SF Mono','JetBrains Mono','Cascadia Mono','DejaVu Sans Mono',monospace;--san:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',Ubuntu,Arial,sans-serif}
+*{-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:auto;min-height:100%}body{min-height:100dvh;font-family:var(--san);color:var(--tx);letter-spacing:-.006em;background:var(--bg);display:flex;flex-direction:column}
+.tw{width:100%;max-width:720px;margin:0 auto;padding:0 18px}
+.top{display:flex;align-items:center;gap:12px;min-height:60px;border-bottom:1px solid var(--ln)}
+.brand{font-weight:650;font-size:16px;display:flex;align-items:center;gap:9px}.brand b{font-weight:650}
+.mut{color:var(--dim);font-family:var(--mono);font-size:12px}
+.sp{flex:1}
+.ib{width:34px;height:34px;border:1px solid var(--ln2);border-radius:10px;display:inline-grid;place-items:center;color:var(--mut);background:var(--p);cursor:pointer;transition:color .15s cubic-bezier(.2,.7,.3,1),border-color .15s cubic-bezier(.2,.7,.3,1),transform .15s cubic-bezier(.2,.7,.3,1)}.ib:hover{color:var(--ac);border-color:var(--ac-line)}
+.ib:focus-visible,.soc:focus-visible,.btn:focus-visible{outline:2px solid var(--ac-line);outline-offset:2px}
+.ib svg{width:17px;height:17px}
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 0 44px;flex:1 0 auto}
+.ava{width:64px;height:64px;border-radius:18px;border:1px solid var(--ln2);background:var(--p);display:grid;place-items:center}.ava svg{width:30px;height:30px}
+h1{font-weight:640;font-size:clamp(36px,9vw,60px);letter-spacing:-.035em;text-wrap:balance;margin-top:22px}
+h1 .pk,h1 .gr{letter-spacing:-.01em}
+.pk{color:var(--ac)}.gr{color:var(--ac)}
+.st{font-family:var(--mono);color:var(--mut);font-size:13.5px;margin:14px auto 0;max-width:34ch;text-align:center;text-wrap:balance;line-height:1.5;min-height:2.6em}
+.socials{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+.soc{width:50px;height:50px;border:1px solid var(--ln2);border-radius:14px;background:var(--p);color:var(--mut);display:grid;place-items:center;cursor:pointer;position:relative;transition:color .2s cubic-bezier(.2,.7,.3,1),border-color .2s cubic-bezier(.2,.7,.3,1),transform .2s cubic-bezier(.2,.7,.3,1)}
+.soc:hover{color:var(--ac);border-color:var(--ac-line);transform:translateY(-1px)}
+.soc svg{width:23px;height:23px}
+.gl::before,.gl::after{content:"";position:absolute;inset:0;border-radius:inherit;background-repeat:no-repeat;background-position:center;background-size:23px;opacity:0;pointer-events:none}
+.gl:hover::before{opacity:1;animation:ga .32s steps(2) infinite;background:var(--g1)}
+.gl:hover::after{opacity:1;animation:gb .26s steps(2) infinite .05s;background:var(--g2)}
+@keyframes ga{to{transform:translate(-2px,0)}}@keyframes gb{to{transform:translate(2px,1px)}}
+.ft{width:100%;border-top:1px solid var(--ln);background:#0b0b0e}.ft .tw{display:flex;justify-content:space-between;align-items:center;min-height:46px;color:var(--dim);font-size:11px;font-family:var(--mono)}
+.mono{font-family:var(--mono)}
+.ov{position:fixed;inset:0;background:rgba(3,3,5,.72);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);z-index:40;display:none;align-items:flex-start;justify-content:center;padding:7vh 16px;overflow:auto}.ov.open{display:flex}
+.modal{width:100%;max-width:720px;background:#0d0d11;border:1px solid var(--ln2);border-radius:16px;padding:16px 16px 12px;box-shadow:0 24px 80px -18px #000}
+.boxlock{text-align:center;padding:20px 0 26px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.boxlock input{width:min(260px,90%);background:#101016;border:1px solid var(--ln2);border-radius:10px;padding:11px 14px;color:#eee;font-size:14px;text-align:center;outline:none}.boxlock input:focus{border-color:var(--ac)}
+.btn{border:1px solid var(--ln2);background:#17171d;color:#eee;border-radius:9px;padding:8px 18px;font-size:13px;cursor:pointer;transition:background .15s cubic-bezier(.2,.7,.3,1),border-color .15s cubic-bezier(.2,.7,.3,1)}.btn:hover{background:#1f1f27;border-color:var(--ln2)}
+.err{color:var(--ac);font-size:12px;height:16px}
+.rowlog{display:grid;grid-template-columns:104px 1fr 96px 60px 66px;gap:8px;padding:7px 4px;border-bottom:1px solid var(--ln);font-family:var(--mono);font-size:12px;word-break:break-word}
+.rowlog b{color:var(--ac);font-weight:400}.lmut{color:var(--dim)}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,12px);background:#0e0e12;border:1px solid var(--ac-line);color:var(--ac);font-family:var(--mono);font-size:12px;padding:9px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70;box-shadow:0 10px 34px -14px rgba(0,0,0,.7);white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:600px){.rowlog{grid-template-columns:84px 1fr;gap:4px} .mut.hide{display:none}}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ac);color:var(--bg)}
+.ib:focus-visible,.soc:focus-visible,.btn:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+#pw:focus-visible{outline:2px solid var(--ac);outline-offset:0}
+.nick{position:relative;display:inline-block}
+
+.soc.press,.ib.press{color:var(--ac);border-color:var(--ac-line);transform:scale(.96)}
+.stat{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 4px}
+.statc{border:1px solid var(--ln2);background:var(--p);border-radius:11px;padding:7px 13px;min-width:86px}
+.statc b{display:block;color:var(--ac);font-size:18px;line-height:1.1;font-weight:600}
+.statc small{color:var(--dim);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+.statc.pink b{color:var(--ac)}
+.stathead{color:var(--dim);font-family:var(--mono);font-size:11px;margin:10px 2px 6px}
+.chips2{display:flex;flex-wrap:wrap;gap:6px;font-family:var(--mono);font-size:11px}
+.chip2{border:1px solid var(--ln2);border-radius:999px;padding:2px 10px;color:var(--mut);background:var(--p);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.chip2 b{color:var(--ac);font-weight:400}
+.chip2.hot{color:var(--ac)}.chip2.hot b{color:var(--ac)}
+</style></head><body>
+<div class="tw"><header class="top">
+ <div class="brand mut" style="font-family:var(--san)"><span style="font-family:var(--mono);color:var(--ac)">$</span><b>shpateil</b></div>
+ <div class="sp"></div>
+ <span class="mut hide">root@shpateil</span>
+ <a class="ib" href="https://ai.shpateil.fun" target="_blank" rel="noopener" title="ai" style="position:relative"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.40434 13.6099C3.51517 13.1448 3 12.5924 3 12C3 10.3431 7.02944 9 12 9C16.9706 9 21 10.3431 21 12C21 12.7144 20.2508 13.3705 19 13.8858"/><path d="M12 11.01L12.01 10.9989"/><path d="M16.8827 6C16.878 4.97702 16.6199 4.25309 16.0856 3.98084C14.6093 3.22864 11.5832 6.20912 9.32664 10.6379C7.07005 15.0667 6.43747 19.2668 7.91374 20.019C8.44117 20.2877 9.16642 20.08 9.98372 19.5"/><path d="M9.60092 4.25164C8.94056 3.86579 8.35719 3.75489 7.91369 3.98086C6.43742 4.73306 7.06999 8.93309 9.32658 13.3619C11.5832 17.7907 14.6092 20.7712 16.0855 20.019C17.3977 19.3504 17.0438 15.9577 15.3641 12.1016"/></svg></a>
+ <a class="ib" href="https://panel.shpateil.fun" target="_blank" rel="noopener" title="shpateil files"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></a>
+ <button class="ib" id="btlog" title="лог посещений"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.8"/></svg></button>
+</header></div>
+<section class="hero">
+<h1 class="nick">shpateil<span class="pk">.</span><span class="gr">fun</span></h1>
+<p class="st" id="st"></p>
+<div class="socials"><a class="soc gl" href="https://t.me/shpateil" target="_blank" rel="noopener" style="--g1:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27ff2e9a%27%3E%3Cpath%20d%3D%27M11.944%200A12%2012%200%200%200%200%2012a12%2012%200%200%200%2012%2012%2012%2012%200%200%200%2012-12A12%2012%200%200%200%2012%200a12%2012%200%200%200-.056%200zm4.962%207.224c.1-.002.321.023.465.14a.506.506%200%200%201%20.171.325c.016.093.036.306.02.472-.18%201.898-.962%206.502-1.36%208.627-.168.9-.499%201.201-.82%201.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184%203.247-2.977%203.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793%201.14-5.061%203.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663%203.498-1.524%205.83-2.529%206.998-3.014%203.332-1.386%204.025-1.627%204.476-1.635z%27/%3E%3C/svg%3E")"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a><a class="soc gl" href="https://github.com/shpateil" target="_blank" rel="noopener" style="--g2:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27ff2e9a%27%3E%3Cpath%20d%3D%27M12%20.297c-6.63%200-12%205.373-12%2012%200%205.303%203.438%209.8%208.205%2011.385.6.113.82-.258.82-.577%200-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422%2018.07%203.633%2017.7%203.633%2017.7c-1.087-.744.084-.729.084-.729%201.205.084%201.838%201.236%201.838%201.236%201.07%201.835%202.809%201.305%203.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93%200-1.31.465-2.38%201.235-3.22-.135-.303-.54-1.523.105-3.176%200%200%201.005-.322%203.3%201.23.96-.267%201.98-.399%203-.405%201.02.006%202.04.138%203%20.405%202.28-1.552%203.285-1.23%203.285-1.23.645%201.653.24%202.873.12%203.176.765.84%201.23%201.91%201.23%203.22%200%204.61-2.805%205.625-5.475%205.92.42.36.81%201.096.81%202.22%200%201.606-.015%202.896-.015%203.286%200%20.315.21.69.825.57C20.565%2022.092%2024%2017.592%2024%2012.297c0-6.627-5.373-12-12-12%27/%3E%3C/svg%3E")"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="soc gl" href="https://tiktok.com/@shpateil" target="_blank" rel="noopener" style="--g2:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27ff2e9a%27%3E%3Cpath%20d%3D%27M12.525.02c1.31-.02%202.61-.01%203.91-.02.08%201.53.63%203.09%201.75%204.17%201.12%201.11%202.7%201.62%204.24%201.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01%202.92.01%205.84-.02%208.75-.08%201.4-.54%202.79-1.35%203.94-1.31%201.92-3.58%203.17-5.91%203.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9%201.12-3.72%202.58-4.96%201.66-1.44%203.98-2.13%206.15-1.72.02%201.48-.04%202.96-.04%204.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11%201.04-1.36%201.75-.21.51-.15%201.07-.14%201.61.24%201.64%201.82%203.02%203.5%202.87%201.12-.01%202.19-.66%202.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z%27/%3E%3C/svg%3E")"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a class="soc gl" href="mailto:isenkootap85@gmail.com" style="--g1:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27ff2e9a%27%3E%3Cpath%20d%3D%27M20.317%204.3698a19.7913%2019.7913%200%2000-4.8851-1.5152.0741.0741%200%2000-.0785.0371c-.211.3753-.4447.8648-.6083%201.2495-1.8447-.2762-3.68-.2762-5.4868%200-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077%200%2000-.0785-.037%2019.7363%2019.7363%200%2000-4.8852%201.515.0699.0699%200%2000-.0321.0277C.5334%209.0458-.319%2013.5799.0992%2018.0578a.0824.0824%200%2000.0312.0561c2.0528%201.5076%204.0413%202.4228%205.9929%203.0294a.0777.0777%200%2000.0842-.0276c.4616-.6304.8731-1.2952%201.226-1.9942a.076.076%200%2000-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077%200%2001-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743%200%2001.0776-.0105c3.9278%201.7933%208.18%201.7933%2012.0614%200a.0739.0739%200%2001.0785.0095c.1202.099.246.1981.3728.2924a.077.077%200%2001-.0066.1276%2012.2986%2012.2986%200%2001-1.873.8914.0766.0766%200%2000-.0407.1067c.3604.698.7719%201.3628%201.225%201.9932a.076.076%200%2000.0842.0286c1.961-.6067%203.9495-1.5219%206.0023-3.0294a.077.077%200%2000.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061%200%2000-.0312-.0286zM8.02%2015.3312c-1.1825%200-2.1569-1.0857-2.1569-2.419%200-1.3332.9555-2.4189%202.157-2.4189%201.2108%200%202.1757%201.0952%202.1568%202.419%200%201.3332-.9555%202.4189-2.1569%202.4189zm7.9748%200c-1.1825%200-2.1569-1.0857-2.1569-2.419%200-1.3332.9554-2.4189%202.1569-2.4189%201.2108%200%202.1757%201.0952%202.1568%202.419%200%201.3332-.946%202.4189-2.1568%202.4189Z%27/%3E%3C/svg%3E")"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></a><button class="soc gl" id="dccopy" style="--g2:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27ff2e9a%27%3E%3Cpath%20d%3D%27M20.317%204.3698a19.7913%2019.7913%200%2000-4.8851-1.5152.0741.0741%200%2000-.0785.0371c-.211.3753-.4447.8648-.6083%201.2495-1.8447-.2762-3.68-.2762-5.4868%200-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077%200%2000-.0785-.037%2019.7363%2019.7363%200%2000-4.8852%201.515.0699.0699%200%2000-.0321.0277C.5334%209.0458-.319%2013.5799.0992%2018.0578a.0824.0824%200%2000.0312.0561c2.0528%201.5076%204.0413%202.4228%205.9929%203.0294a.0777.0777%200%2000.0842-.0276c.4616-.6304.8731-1.2952%201.226-1.9942a.076.076%200%2000-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077%200%2001-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743%200%2001.0776-.0105c3.9278%201.7933%208.18%201.7933%2012.0614%200a.0739.0739%200%2001.0785.0095c.1202.099.246.1981.3728.2924a.077.077%200%2001-.0066.1276%2012.2986%2012.2986%200%2001-1.873.8914.0766.0766%200%2000-.0407.1067c.3604.698.7719%201.3628%201.225%201.9932a.076.076%200%2000.0842.0286c1.961-.6067%203.9495-1.5219%206.0023-3.0294a.077.077%200%2000.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061%200%2000-.0312-.0286zM8.02%2015.3312c-1.1825%200-2.1569-1.0857-2.1569-2.419%200-1.3332.9555-2.4189%202.157-2.4189%201.2108%200%202.1757%201.0952%202.1568%202.419%200%201.3332-.9555%202.4189-2.1569%202.4189zm7.9748%200c-1.1825%200-2.1569-1.0857-2.1569-2.419%200-1.3332.9554-2.4189%202.1569-2.4189%201.2108%200%202.1757%201.0952%202.1568%202.419%200%201.3332-.946%202.4189-2.1568%202.4189Z%27/%3E%3C/svg%3E")"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></button></div>
+<p class="st" style="opacity:.55;font-size:11px" id="cntn"></p>
+</section>
+<footer class="ft"><div class="tw"><span>© <span id="yr"></span> shpateil</span></div></footer>
+<div class="ov" id="ov"><div class="modal">
+  <div style="display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln);padding-bottom:12px">
+    <h2 style="font-size:15px;font-weight:600">лог посещений</h2><span class="mut" id="mt"></span>
+    <div class="sp"></div><button class="ib" id="mx" title="закрыть"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div id="stats"></div>
+  <div id="lockw"><div class="boxlock">
+    <p style="color:var(--mut);font-size:13px">если ты это открыл, у тебя есть причины</p>
+    <input id="pw" type="password" placeholder="пароль" autocomplete="off">
+    <div class="err" id="lgerr"></div><button class="btn" id="unlock">разблокировать</button>
+  </div></div>
+  <div id="logs" style="display:none">
+    <div style="display:flex;gap:8px;padding:8px 0;align-items:center;border-bottom:1px solid var(--ln);font-size:12px;color:var(--dim)">
+      <span id="cnt">0</span><div class="sp"></div>
+      <button class="btn" id="fr">авто</button><button class="btn" id="clr">очистить</button><button class="btn" id="exportB">копировать всё</button></div>
+    <div style="max-height:52vh;overflow:auto;margin-top:6px">
+      <div class="rowlog lmut" id="headrow"><span>время</span><span>ip / ua</span><span>устройство</span><span>путь</span><span>screen / tz</span></div>
+      <div id="rows"></div>
+    </div>
+  </div>
+</div></div>
+
+
+<script>
+(function(){var sc=screen,lg=navigator.language||'',tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+fetch('/api/visit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({path:location.pathname,ref:(document.referrer||'').slice(0,200),lang:lg.slice(0,20),screen:(sc?sc.width+'x'+sc.height:''),tz:tz.slice(0,40)})}).catch(function(){})})();
+function toast(m){var o=document.createElement('span');o.className='toast';o.textContent=m;document.body.appendChild(o);requestAnimationFrame(function(){o.classList.add('show')});setTimeout(function(){o.classList.remove('show');setTimeout(function(){o.remove()},250)},2000)}
+/* --- фразы под ником (30, как в юзерботе) --- */
+var PS=["i use arch btw", "[ ok ] started", "root@shpateil:~# _", "chmod 777 /everything", "works on my machine", "rtfm", "lurk moar", "google is your friend", "there's no place like 127.0.0.1", "you are not expected to understand this", "eternal september", "stay hungry, stay foolish", "the journey is the reward", "you only live once, but if you do it right, once is enough", "a smooth sea never made a skilled sailor", "wrong city, wrong people", "today was a good day", "it's the code you live by that defines who you are", "the moon. we're going to the moon", "get in the robot", "congratulations", "let's all love lain", "the cake is a lie", "don't mistake my silence for weakness", "keep your friends close, your enemies closer", "living that sudo life", "i hate you more.", "through the city by day, over the city by night", "life is short. use arch", "powered by caffeine and bad decisions"],ix=Math.floor(Math.random()*PS.length),se=document.getElementById('st'),iv=null;
+function next(){ix=(ix+1)%PS.length;if(se)se.textContent=PS[ix]}
+if(se){se.textContent=PS[ix];iv=setInterval(next,9000)}
+document.addEventListener('visibilitychange',function(){if(document.hidden&&iv){clearInterval(iv);iv=null}else if(!iv&&se){iv=setInterval(next,9000)}});
+document.getElementById('yr').textContent=new Date().getFullYear();
+/* --- дискорд: копия ника shpateil --- */
+(function(){var b=document.getElementById('dccopy');if(!b)return;b.addEventListener('click',function(e){e.preventDefault();var z=document.createElement('textarea');z.value='shpateil';z.style.cssText='position:fixed;opacity:0';document.body.appendChild(z);z.select();try{document.execCommand('copy')}catch(_){}z.remove();toast('discord username copied')})})();
+/* --- админ: лог посещений --- */
+var TK=sessionStorage.getItem('adtk')||null,ov=document.getElementById('ov'),lockw=document.getElementById('lockw'),lgb=document.getElementById('logs'),poll=null;
+function ls(){lockw.style.display='none';lgb.style.display='block';ld();pane();if(poll)clearInterval(poll);poll=setInterval(function(){ld();pane()},9000)}
+function op(){ov.classList.add('open');if(TK)ls()}
+document.getElementById('btlog').onclick=op;
+document.getElementById('mx').onclick=function(){ov.classList.remove('open')};
+ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('open')});
+function eS(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function ld(){if(!TK)return;fetch('/api/admin/logs',{headers:{'x-admin-token':TK}}).then(function(r){if(r.status===401){needAuth();return null}return r.json()}).then(function(j){if(!j)return;var es=(j&&j.entries)||[];var c=document.getElementById('cnt');if(c)c.textContent=es.length+' визитов';var H='';for(var k=0;k<es.length;k++){var e=es[k],d=new Date(e.at),ts=(isNaN(d)?(e.at||''):d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}));H+='<div class="rowlog"><span class="lmut">'+eS(ts)+'</span><span><b>'+eS(e.ip||'')+'</b> <span class="lmut">'+eS(e.device||'')+'</span></span><span class="lmut">'+eS(e.path||'/')+'</span><span class="lmut">'+eS(e.screen||'')+'</span></div>'}var R=document.getElementById('rows');R.innerHTML=H||'<p class="lmut" style="padding:12px">пусто</p>'}).catch(function(){})}
+document.getElementById('unlock').onclick=function(){var p=document.getElementById('pw').value;var er=document.getElementById('lgerr');fetch('/api/admin/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:p})}).then(function(r){return r.json()}).then(function(j){if(j&&j.token){TK=j.token;sessionStorage.setItem('adtk',TK);er.textContent='';ls()}else{er.textContent='нет доступа'}}).catch(function(){er.textContent='сеть'})};
+document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('unlock').click()});
+document.getElementById('clr').onclick=function(){if(TK)fetch('/api/admin/logs',{method:'POST',headers:{'content-type':'application/json','x-admin-token':TK},body:JSON.stringify({op:'clear'})}).then(function(){ld()})};
+document.getElementById('exportB').onclick=function(){if(!TK){toast('сначала войди');return}fetch('/api/admin/export',{headers:{'x-admin-token':TK}}).then(function(r){return r.text()}).then(function(t){var n=t.split(String.fromCharCode(10)).filter(Boolean).length;var z=document.createElement('textarea');z.value=t;z.style.cssText='position:fixed;opacity:0';document.body.appendChild(z);z.select();try{document.execCommand('copy')}catch(_){}z.remove();toast('скопировано для анализа '+n+' строк')}).catch(function(){toast('ошибка экспорта')})};
+/* задержка перед уходом на ссылку: кнопка загорается, потом переход */
+(function(){var links=document.querySelectorAll('a[href]');function grab(e){var a=e.currentTarget;if(a.classList.contains('dccopy')||a.getAttribute('data-no'))return;if(e.defaultPrevented)return;var href=a.href,bl=a.target==='_blank';e.preventDefault();a.classList.add('press');setTimeout(function(){a.classList.remove('press');if(bl){var w=window.open(href,'_blank');if(w)w.opener=null}else location.href=href},340)}Array.prototype.forEach.call(links,function(a){a.addEventListener('click',grab)})})();
+ /* stats сводки */
+function pane(){if(!TK)return;var num=function(v){return (typeof v==='number'&&isFinite(v))?v:0};var needAuth=function(){TK=null;sessionStorage.removeItem('adtk');document.getElementById('lockw').style.display='flex';document.getElementById('logs').style.display='none';var e=document.getElementById('lgerr');if(e)e.textContent='сессия истекла, войди заново'};fetch('/api/admin/stats',{headers:{'x-admin-token':TK}}).then(b=>{if(b.status===401){needAuth();return null}return b.json()}).then(s=>{var w=document.getElementById('stats');if(!w||!s)return;var refs=(s.top_refs||[]).map(x=>'<span class="chip2'+(x.v>=2?' hot':'')+'" title="реферер"><b>'+x.v+'</b> '+x.k+'</span>').join('')||'<span class="chip2">—</span>';
+var bws=(s.browsers||[]).map(x=>'<span class="chip2"><b>'+x.v+'</b> '+x.k+'</span>').join('');
+var ps=(s.top_paths||[]).map(x=>'<span class="chip2">'+x.v+' <span style="color:var(--dim)">'+x.k+'</span></span>').join('');
+w.innerHTML='<div class="stat"><div class="statc"><b>'+num(s.total)+'</b><small>всего</small></div><div class="statc pink"><b>'+num(s.visits_24h)+'</b><small>визиты/24ч</small></div><div class="statc"><b>'+num(s.unique_ips_24h)+'</b><small>уник ip/24ч</small></div></div>'
++'<div class="stathead">браузеры/устройства</div><div class="chips2">'+bws+'</div>'
++'<div class="stathead">откуда (реферер)</div><div class="chips2">'+refs+'</div>'
++'<div class="stathead">пути</div><div class="chips2">'+ps+'</div>'}).catch(function(){})}
+</script>
+
+</body></html>
