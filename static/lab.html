@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='color-scheme' content='dark'><meta name='theme-color' content='#050506'>
+<title>logo lab</title>
+<link rel="stylesheet" href="/static/fonts.css?v=3">
+<style>
+:root{color-scheme:dark;--bg:#050506;--tx:#f2f2f3;--mut:#a1a1a6;--dim:#7d7d84;--ac:#ff5fd9;
+--display:'Tektur',system-ui,sans-serif;--body:'Golos Text',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100dvh;background:var(--bg);color:var(--tx);font:400 15px/1.5 var(--body);
+display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 18px 26px}
+h1{position:relative;display:inline-block;font-family:var(--display);font-weight:900;
+font-size:clamp(44px,11.5vw,104px);line-height:.94;letter-spacing:-.015em;
+font-variation-settings:'wdth' 86;color:transparent}
+h1 canvas{position:absolute;left:0;top:0;pointer-events:none}
+.st{font:400 14px/1.5 var(--mono);color:var(--mut);margin-top:18px;max-width:30ch;min-height:2.8em}
+.nav{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap;justify-content:center}
+.nav a{border:1px solid rgba(255,255,255,.13);background:#0d0d0f;color:var(--mut);
+border-radius:9px;padding:9px 14px;font:500 13px/1 var(--body);text-decoration:none;min-height:38px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a.on{color:var(--ac);border-color:rgba(255,95,217,.45)}
+.hint{margin-top:16px;font:400 11px/1.5 var(--mono);color:var(--dim);max-width:36ch}
+</style></head><body>
+<h1 id="nick">shpateil.fun</h1>
+<p class="st" id="st">no logs, no crime</p>
+<div class="nav" id="nav"></div>
+<p class="hint" id="hint"></p>
+<script src="/static/lab.js?v=1"></script>
+<script>
+(function(){
+  var m = parseInt((location.search.match(/[?&]m=(\d+)/)||[])[1]||'1',10);
+  var names = {1:'1 базовый перелив',2:'2 noita dissolve',3:'3 сканлайн + rgb',4:'4 световой свип',5:'5 дизер 2 тона'};
+  var notes = {
+    1:'крупные пиксели, две волны, быстрый ход. это то что сейчас в проде',
+    2:'текст сам рассыпается в горящие пиксели и собирается обратно, цикл ~4с',
+    3:'горизонтальная полоса едет сверху вниз, буквы на ней раздваиваются по rgb, щели между строками',
+    4:'плавные световые волны, узкая сетка, лёгкое свечение. самый спокойный',
+    5:'только два тона, байер 8x8, читается как дизер-графика. самый графичный'
+  };
+  var nav = document.getElementById('nav');
+  for (var i=1;i<=5;i++){
+    var a=document.createElement('a');
+    a.href='?m='+i; a.textContent=i;
+    if (i===m) a.className='on';
+    nav.appendChild(a);
+  }
+  var h=document.getElementById('hint');
+  h.textContent = (names[m]||'') + '. ' + (notes[m]||'');
+  var c=document.createElement('span'); c.style.cssText='color:var(--dim)';
+  h.appendChild(c);
+  /* фразы из прод-api, как на сайте */
+  fetch('/api/phrases').then(r=>r.json()).then(j=>{
+    var p=(j&&j.phrases)||[];
+    if(!p.length) return;
+    var st=document.getElementById('st'), ix=Math.floor(Math.random()*p.length);
+    st.textContent=p[ix];
+    setInterval(function(){ ix=(ix+1)%p.length; st.style.opacity='0';
+      setTimeout(function(){ st.textContent=p[ix]; st.style.opacity='1'; },220); },9000);
+  }).catch(function(){});
+})();
+</script>
+</body></html>
