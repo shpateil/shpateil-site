@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='color-scheme' content='dark'><meta name='theme-color' content='#050506'>
+<title>logo lab 2</title>
+<link rel="stylesheet" href="/static/fonts.css?v=3">
+<style>
+:root{color-scheme:dark;--bg:#050506;--tx:#f2f2f3;--mut:#a1a1a6;--dim:#7d7d84;--ac:#ff5fd9;
+--display:'Tektur',system-ui,sans-serif;--body:'Golos Text',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100dvh;background:var(--bg);color:var(--tx);font:400 15px/1.5 var(--body);
+display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 18px 24px}
+h1{position:relative;display:inline-block;font-family:var(--display);font-weight:900;
+font-size:clamp(44px,11.5vw,104px);line-height:.94;letter-spacing:-.015em;
+font-variation-settings:'wdth' 86;color:transparent}
+h1 canvas{position:absolute;left:0;top:0;pointer-events:none}
+.st{font:400 14px/1.5 var(--mono);color:var(--mut);margin-top:18px;max-width:30ch;min-height:2.8em;transition:opacity .28s}
+.nav{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap;justify-content:center}
+.nav a{border:1px solid rgba(255,255,255,.13);background:#0d0d0f;color:var(--mut);
+border-radius:9px;padding:9px 16px;font:500 13px/1 var(--body);text-decoration:none;min-height:38px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a.on{color:var(--ac);border-color:rgba(255,95,217,.45)}
+.hint{margin-top:16px;font:400 11px/1.6 var(--mono);color:var(--dim);max-width:40ch}
+</style></head><body>
+<h1 id="nick">shpateil.fun</h1>
+<p class="st" id="st"></p>
+<div class="nav" id="nav"></div>
+<p class="hint" id="hint"></p>
+<script src="/static/lab2.js?v=6"></script>
+<script>
+(function(){
+  var m = parseInt((location.search.match(/[?&]m=(\d+)/)||[])[1]||'1',10);
+  if ([1,2,4].indexOf(m)<0) m = 1;
+  var names = {1:'вариант 1',2:'вариант 2',4:'вариант 4'};
+  var notes = {
+    1:'базовый перелив. крупные пиксели, две волны, по буквам периодически проходит светлая искра по диагонали и мягко подсвечивает участок. движение ровное, ничего не рассыпается.',
+    2:'noita dissolve. текст стоит и переливается 2.6с, потом за полсекунды отгорает пятнами с нагревом по краям, за 0.75с собирается обратно. в покое читается полностью, распад только по краям букв.',
+    4:'световой свип. сетка мелкая, три волны идут по диагонали с разной скоростью, внутри букв мягкое свечение размытой копией и редкая пыль на гребнях. самый спокойный из трёх.'
+  };
+  var nav=document.getElementById('nav');
+  [1,2,4].forEach(function(i){
+    var a=document.createElement('a'); a.href='?m='+i; a.textContent=i;
+    if(i===m) a.className='on'; nav.appendChild(a);
+  });
+  document.getElementById('hint').textContent = names[m] + '. ' + notes[m];
+  fetch('/api/phrases').then(r=>r.json()).then(j=>{
+    var p=(j&&j.phrases)||[];
+    if(!p.length) return;
+    var st=document.getElementById('st'), ix=Math.floor(Math.random()*p.length);
+    st.textContent=p[ix];
+    setInterval(function(){ ix=(ix+1)%p.length; st.style.opacity='0';
+      setTimeout(function(){ st.textContent=p[ix]; st.style.opacity='1'; },240); },9000);
+  }).catch(function(){ document.getElementById('st').textContent='no logs, no crime'; });
+})();
+</script>
+</body></html>

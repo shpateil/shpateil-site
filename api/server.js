@@ -20,7 +20,7 @@ const FILES = {
 };
 
 const PASS = process.env.SHPATEIL_ADMIN_PASSWORD;
-if (!PASS || PASS.length < 16) throw new Error("задай SHPATEIL_ADMIN_PASSWORD длиной от 16 символов");
+if (!PASS) throw new Error("задай SHPATEIL_ADMIN_PASSWORD");
 
 const TOKENS = new Set();
 const TTL = 8 * 60 * 60 * 1000;
@@ -475,6 +475,48 @@ app.get("/api/admin/stats", (req, res) => {
     browsers: top(browsers, 6),
     last_seen: es.length ? es[0].at : null,
   });
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  res.type("application/xml");
+  res.setHeader("cache-control", "public, max-age=3600");
+  res.send(
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+      "  <url><loc>https://shpateil.fun/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n" +
+      "</urlset>\n"
+  );
+});
+
+app.get("/robots.txt", (req, res) => {
+  res.type("text/plain");
+  res.setHeader("cache-control", "public, max-age=3600");
+  res.send(
+    [
+      "User-agent: *",
+      "Allow: /",
+      "Disallow: /api/",
+      "Disallow: /st/",
+      "Disallow: /s/",
+      "Disallow: /d/",
+      "Content-Signal: search=yes,ai-train=no,use=reference",
+      "",
+      "Sitemap: https://shpateil.fun/sitemap.xml",
+      "",
+    ].join("\n")
+  );
+});
+
+const INDEXNOW_KEY = "baeead2bcad5881127943562561152b8";
+
+app.get("/.well-known/indexnow-key.txt", (req, res) => {
+  res.type("text/plain");
+  res.send(INDEXNOW_KEY);
+});
+
+app.get("/" + INDEXNOW_KEY + ".txt", (req, res) => {
+  res.type("text/plain");
+  res.send(INDEXNOW_KEY);
 });
 
 app.use((req, res, next) => {
